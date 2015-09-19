@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <head>
+<title>Crawl</title>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
 </head>
 
 <body>
-<form role="form">
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '#' %></li>
+        <li><%= link_to "Help",   '#' %></li>
+        <li><%= link_to "Log in", '#' %></li>
+      </ul>
+    </nav>
   </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</header>
+  <div class="center jumbotron">
+  <h1>Welcome to the Crawl App</h1>
 
+  <form role="form">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email" style="width: 50%;">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" style="width: 50%;">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+  <%= link_to "Make a Crawl", '#', class: "btn btn-lg btn-primary" %>
+</div>
 </body>
 
 
