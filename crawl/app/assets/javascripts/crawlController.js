@@ -13,22 +13,28 @@ app.factory("apiService", function($http) {
 });
 
 app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, $http, apiService){
-	$scope.categories = {
-		"Attractions" : [
-			"Nightlife",
-			"Bars",
-			"Clubs",
-			"Sightseeing Tours",
-			"Performances",
-			"Landmarks"
-		],
-		"Restaurants" : [
-			"Pub",
-			"Bakery",
-			"Chinese",
-			"Sushi"
-		]
-	};
+	$scope.categories = [
+		{
+			"name": "Attractions",
+			"sub_categories" : [
+				"Nightlife",
+				"Bars",
+				"Clubs",
+				"Sightseeing Tours",
+				"Performances",
+				"Landmarks"
+			]
+		},
+		{
+			"name" : "Restaurants",
+			"sub_categories" : [
+				"Pub",
+				"Bakery",
+				"Chinese",
+				"Sushi"
+			]
+		}
+	];
 	$scope.loc = "60763";
 	$scope.cat = "attractions";
 	$scope.sub_cat = "bars";
