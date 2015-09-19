@@ -1,0 +1,37 @@
+Input
+{
+	"start": {
+		"lat": "xxxx",
+		"long": "xxxx"
+	},
+	"destinations": [
+		{
+		"lat": "xxxx",
+		"long": "xxxx",
+		"id": "xxxx"
+		}, 
+		{
+		"lat": "xxxx",
+		"long": "xxxx",
+		"id": "xxxx"
+		}		
+	]
+}
+
+
+Output
+{
+	"destinationOrder": [
+		{
+		"lat": "xxxx",
+		"long": "xxxx",
+		"id": "xxxx"
+		}, 
+		{
+		"lat": "xxxx",
+		"long": "xxxx",
+		"id": "xxxx"
+		}	
+	]
+}
+
