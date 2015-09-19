@@ -22,16 +22,8 @@ Input
 Output
 {
 	"destinationOrder": [
-		{
-		"lat": "xxxx",
-		"long": "xxxx",
-		"id": "xxxx"
-		}, 
-		{
-		"lat": "xxxx",
-		"long": "xxxx",
-		"id": "xxxx"
-		}	
+		"id1xxx",
+		"id2xxx"
 	]
 }
 
