@@ -11,6 +11,14 @@ INPUT_START_FIELD = "start"
 INPUT_DESTINATION_FIELD = "destinations"
 
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+	def end_headers(self):
+			self.send_my_headers()
+			SimpleHTTPServer.SimpleHTTPRequestHandler.end_headers(self)
+
+	def send_my_headers(self):
+		self.send_header("Access-Control-Allow-Origin", "*")
+		self.send_header("Access-Control-Allow-Methods",'GET,PUT,POST,DELETE,OPTIONS')
+
 	def do_POST(self):
 		content_len = int(self.headers.getheader('content-length', 0))
 		post_body = self.rfile.read(content_len)
@@ -24,6 +32,7 @@ class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		order = route.route(start, destinations)
 		out = [destination.id for destination in order]
 		self.wfile.write(json.dumps(out))
+
 
 httpd = SocketServer.TCPServer(("", PORT), ServerHandler)
 
