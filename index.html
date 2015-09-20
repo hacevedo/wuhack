@@ -5,7 +5,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-    <script src="app.js"></script>
+      
+      <script src="app.js"></script>
 
     <style>
       #map {
@@ -86,14 +87,12 @@
 
   <ul>
     <li ng-repeat="place in list | limitTo: num">
-      <h2>{{place.name}} <button ng-click="removePlace($index)">Remove</button></h2>
-      <h3 ng-bind="place.address_obj.address_string"></h3>
-      <h4 ng-if="place.percent_recommended"> Recommended: {{place.percent_recommended}}% </h4>
-      <h4 ng-if="place.rating"> Rating: {{place.rating}} </h4>
-      <h4 ng-if="place.awards.length != 0"> Awards </h4>
-      <ul>
-        <li ng-repeat="award in place.awards">{{award.display_name}}</li>
-      </ul>
+      <h3>{{place.name}} <button class="btn btn-sm" ng-click="removePlace($index)">Remove</button></h3>
+      <h4 ng-bind="place.address_obj.address_string"></h4>
+      <h4.
+        <span ng-if="place.percent_recommended"> Recommended: {{place.percent_recommended}}% </span>
+        <span ng-if="place.rating"> Rating: {{place.rating}} </span>
+      </h4>  
     </li>
   </ul>
 

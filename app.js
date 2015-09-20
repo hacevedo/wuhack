@@ -1,3 +1,5 @@
+
+
 var app = angular.module("crawlApp", []);
 
 app.factory("apiService", function($http) {
@@ -45,6 +47,15 @@ app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, 
 		"longitude" : "42"
 	};
 
+	$scope.getLatLong=function() {
+      var geocoder = new google.maps.Geocoder();
+      var address = document.getElementById("pac-input").value;
+      geocoder.geocode({'address' : address}, function(results, status){
+      $scope.start.latitude = results[0].geometry.location.lat();
+      $scope.start.longitude = results[0].geometry.location.lng();
+      });
+    };
+
 	$scope.getResults = function (loc, cat, sub_cat){
 		var url = "http://api.tripadvisor.com/api/partner/2.0/location/" + loc + "/" + cat + "?key=4FDDE1CDF4C2402980BABF84989B111D";
 		if(sub_cat !== "") {
@@ -56,6 +67,7 @@ app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, 
 			console.log("successful retrieval!");
 			console.log(response);
 			$scope.list= response.data.data;
+			$scope.getLatLong();
 			$scope.postPlaceList();
 		});
 
@@ -67,7 +79,7 @@ app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, 
 	};
 
 	$scope.postPlaceList = function(){
-		var url = "http://localhost:8000/";
+		var url = "http://localhost:8000";
 		console.log("in post");
 		var placeData = {
 			"start" : {
@@ -85,7 +97,7 @@ app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, 
 			placeData.destinations.push(placeObj);
 		}
 		console.log(placeData);
-		$http.post(url, placeData).then(function(response){
+		$http.post(url, placeData).then(function(){
 			console.log("successful post!");
 		});
 	};
