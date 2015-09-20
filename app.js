@@ -67,7 +67,7 @@ app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, 
 	};
 
 	$scope.postPlaceList = function(){
-		var url = "localhost:8000";
+		var url = "http://localhost:8000/";
 		console.log("in post");
 		var placeData = {
 			"start" : {
@@ -85,7 +85,7 @@ app.controller("crawlCtrl",  ['$scope', '$http', 'apiService', function($scope, 
 			placeData.destinations.push(placeObj);
 		}
 		console.log(placeData);
-		$http.post(url, placeData).then(function(){
+		$http.post(url, placeData).then(function(response){
 			console.log("successful post!");
 		});
 	};
